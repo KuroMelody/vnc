@@ -1,0 +1,26 @@
+name: run vnc
+
+on:
+    workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Preparing environment...
+      env:
+        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
+        VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
+      run: ./setup.sh
+
+    - name: Starting VNC Server...
+      run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
+
+    - name: Creating tunnel with ngrok...
+      run: ./ngrok tcp -region=ap 7582
+

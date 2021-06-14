@@ -1,0 +1,23 @@
+[begin] (fluxbox)
+	[exec] (Terminal) {xfce4-terminal --working-directory=$HOME}
+	[exec] (File Manager) {thunar $HOME}
+	[submenu] (browser)
+		[exec] (Firefox) {firefox}
+		[exec] (Chromium) {chromium-browser}
+
+	[submenu] (Programming)
+		[exec] (mousepad) {mousepad}
+		[exec] (vscode) {code}
+	[end]
+
+	[submenu] (Tools) {Some useful tools}
+		[exec] (htop) {xfce4-terminal -x htop}
+		[exec] (edit menu) {mousepad '/home/melody/.fluxbox/menu'}
+	[end]
+
+	[include] (/etc/X11/fluxbox/fluxbox-menu)
+
+	[submenu] (User Styles) {Choose a style...}
+		[stylesdir] (~/.fluxbox/styles)
+	[end]
+[end]
