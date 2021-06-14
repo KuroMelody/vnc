@@ -22,7 +22,7 @@ jobs:
       env:
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
       run: |
-        './ngrok authtoken $NGROK_TOKEN && ./ngrok tcp -region=ap 7582 &
+        ./ngrok authtoken $NGROK_TOKEN && ./ngrok tcp -region=ap 7582 &
         curl -s http://localhost:4040/api/tunnels
 
     - name: loop
