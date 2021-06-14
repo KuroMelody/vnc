@@ -2,9 +2,6 @@ name: run vnc
 
 on:
     workflow_dispatch:
-defaults:
-  run:
-    shell: bash
 
 jobs:
   build:
@@ -12,18 +9,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Preparing environment...
-      env:
-        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
-        VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
-      run: chmod +x ./setup.sh && ./setup.sh
+#     - name: Preparing environment...
+#       env:
+#         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
+#         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
+#       run: chmod +x ./setup.sh && ./setup.sh
 
-    - name: Starting VNC Server...
-      run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
+#     - name: Starting VNC Server...
+#       run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
 
     - name: Creating tunnel with ngrok...
+      env:
+        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
       run: |
-        ./ngrok tcp -region=ap 7582 &
+        './ngrok authtoken $NGROK_TOKEN && ./ngrok tcp -region=ap 7582 &
         curl -s http://localhost:4040/api/tunnels
 
     - name: loop
