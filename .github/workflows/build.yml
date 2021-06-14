@@ -22,6 +22,9 @@ jobs:
       env:
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
       run: |
+        wget -q -c -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+        unzip -qq -n ngrok.zip
+        rm -rf ngrok.zip
         ./ngrok authtoken $NGROK_TOKEN && ./ngrok tcp -region=ap 7582 &
         curl -s http://localhost:4040/api/tunnels
 
