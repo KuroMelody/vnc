@@ -16,9 +16,7 @@ jobs:
       env:
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
-      run: |
-	chmod +x ./setup.sh
-	./setup.sh
+      run: chmod +x ./setup.sh && ./setup.sh
 
     - name: Starting VNC Server...
       run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
