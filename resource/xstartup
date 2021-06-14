@@ -1,0 +1,3 @@
+#!/bin/bash
+dbus-launch /usr/bin/fluxbox &
+hsetroot -cover $HOME/.fluxbox/background.png
