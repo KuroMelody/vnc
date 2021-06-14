@@ -22,5 +22,9 @@ jobs:
       run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
 
     - name: Creating tunnel with ngrok...
-      run: ./ngrok tcp -region=ap 7582
+      run: |
+        ./ngrok tcp -region=ap 7582 &
+        curl -s http://localhost:4040/api/tunnels
 
+    - name: loop
+      run: tail -F ./setup.sh
