@@ -21,5 +21,5 @@ jobs:
     - name: Creating tunnel with ngrok...
       run: ./ngrok tcp -region=ap 7582
 
-- name: loop
+    - name: loop
       run: tail -F ./setup.sh
