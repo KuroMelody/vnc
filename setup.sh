@@ -10,7 +10,7 @@ sudo dpkg -i turbovnc_2.2.5_amd64.deb
 
 export PATH=$PATH:/opt/TurboVNC/bin
 mkdir $HOME/.vnc
-cp .resource/xstartup $HOME/.vnc/xstartup.turbovnc
+cp ./resource/xstartup $HOME/.vnc/xstartup.turbovnc
 echo $VNC_PASSWORD | vncpasswd -f > $HOME/.vnc/passwd
 chmod 0600 $HOME/.vnc/passwd
 
