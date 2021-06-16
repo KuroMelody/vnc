@@ -6,6 +6,7 @@ echo "========================"
 
 sudo apt -qq update > /dev/null
 sudo apt -qq install -y fluxbox firefox chromium-browser xfce4-terminal thunar mousepad nano curl wget ssh git hsetroot xarchiver build-essential gdebi lxappearance tigervnc-standalone-server tigervnc-xorg-extension > /dev/null
+sudo apt -qq install x11-apps x11-common x11-session-utils x11-utils x11-xserver-utils x11-xkb-utils dbus-user-session dbus-x11 libpam0g libxt6 libxext6 > /dev/null
 cp -R ./resource/.fluxbox $HOME
 
 # vnc
