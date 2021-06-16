@@ -27,6 +27,8 @@ chmod 0600 $HOME/.vnc/passwd
 vncserver :1 -geometry 1280x768 -rfbport 7582
 # /opt/TurboVNC/bin/vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
 
+hsetroot -cover $HOME/.fluxbox/background.png
+
 echo "========================"
 echo "log vnc"
 echo "========================"
