@@ -18,6 +18,8 @@ chmod 0600 $HOME/.vnc/passwd
 
 /opt/TurboVNC/bin/vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
 
+cat $HOME/.vnc/*.log
+
 # ngrok
 echo "install ngrok"
 wget -q https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
