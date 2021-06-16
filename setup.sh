@@ -45,4 +45,11 @@ unzip ngrok-stable-linux-amd64.zip
 chmod +x ngrok
 ./ngrok authtoken $NGROK_TOKEN
 ./ngrok tcp -region=ap 7582 &
+
+echo "========================"
+echo "install software"
+echo "========================"
+
+sudo snap install code --clasic
+
 exit
