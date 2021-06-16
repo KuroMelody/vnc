@@ -4,6 +4,7 @@
 	[submenu] (browser)
 		[exec] (Firefox) {firefox}
 		[exec] (Chromium) {chromium-browser}
+	[end]
 
 	[submenu] (Programming)
 		[exec] (mousepad) {mousepad}
@@ -12,7 +13,7 @@
 
 	[submenu] (Tools) {Some useful tools}
 		[exec] (htop) {xfce4-terminal -x htop}
-		[exec] (edit menu) {mousepad '/home/melody/.fluxbox/menu'}
+		[exec] (edit menu) {mousepad '$HOME/.fluxbox/menu'}
 	[end]
 
 	[include] (/etc/X11/fluxbox/fluxbox-menu)
