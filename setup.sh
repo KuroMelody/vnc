@@ -50,6 +50,6 @@ echo "========================"
 echo "install software"
 echo "========================"
 
-sudo snap install code --clasic
+sudo snap install code --classic
 
 exit
