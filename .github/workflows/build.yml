@@ -7,9 +7,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout...
+      uses: actions/checkout@v2
+      
+    - name: Install Python...
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+          
+    - name: Install nodejs
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
 
-    - name: Preparing environment...
+    - name: Setup...
       env:
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
@@ -18,7 +29,7 @@ jobs:
 #     - name: Starting VNC Server...
 #       run: export PATH=$PATH:/opt/TurboVNC/bin && cd $HOME && vncserver :1 -geometry 1280x768 -depth 16 -rfbport 7582
 
-    - name: Creating tunnel with ngrok...
+    - name: Print ngrok...
       run: curl -s http://localhost:4040/api/tunnels
 
     - name: loop
